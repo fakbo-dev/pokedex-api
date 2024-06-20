@@ -5,8 +5,24 @@ import { useState } from "react"
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import PokemonCard from "./PokemonCard";
-const PokemonLayout = () => {
+
+interface PokemonLayoutProps {
+    pokemonList: any;
+}
+
+const PokemonLayout = ({ pokemonList }: PokemonLayoutProps) => {
     const [searchText, setSearchText] = useState("");
+
+    // Filter the text
+    const searchFilter = (pokemonList: any) => {
+        return pokemonList.filter(
+            (pokemon: any) => pokemon.name.toLowerCase().includes(searchText.toLowerCase())
+        );
+    }
+
+    // Save the filtered array of objects
+    const filteredPokemonList = searchFilter(pokemonList);
+
 
     return (
         <section className="relative mt-[80px] xl:mt-[130px]">
@@ -31,14 +47,9 @@ const PokemonLayout = () => {
                         />
                     </div>
                     <div className="grid text-center grid-cols-3 xl:grid-cols-3 gap-4 mb-48">
-                        <PokemonCard name="Pikachu" />
-                        <PokemonCard name="Pikachu" />
-                        <PokemonCard name="Pikachu" />
-                        <PokemonCard name="Pikachu" />
-                        <PokemonCard name="Pikachu" />
-                        <PokemonCard name="Pikachu" />
-                        <PokemonCard name="Pikachu" />
-                        <PokemonCard name="Pikachu" />
+                        {filteredPokemonList.map((pokemon: any) => (
+                            <PokemonCard name={pokemon.name} key={pokemon.name + "name"} />
+                        ))}
                     </div>
                 </div>
             </div>

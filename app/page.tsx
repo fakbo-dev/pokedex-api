@@ -1,6 +1,6 @@
 // Component
 import PokemonLayout from "@/components/PokemonLayout";
-
+import { getPokemonList } from "@/lib/PokemonAPi";
 
 // Load in data.
 // we can pass data from to a client component.
@@ -23,10 +23,11 @@ import PokemonLayout from "@/components/PokemonLayout";
 
 
 
-const page = () => {
+const page = async () => {
+    const pokemonList = await getPokemonList();
     return (
         <main className="max-w-[1920px] mx-auto">
-            <PokemonLayout />
+            <PokemonLayout pokemonList={pokemonList} />
         </main>
     );
 };

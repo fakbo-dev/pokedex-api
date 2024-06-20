@@ -9,7 +9,7 @@ const PokemonCard = ({ name }: PokemonCardProps) => {
         <Link href={name} >
             <Card className="hover:bg-slate-500 transition-all ease-linear delay-75 border-2 py-0">
                 <CardHeader>
-                    {name}
+                    {name.charAt(0).toUpperCase() + name.slice(1)}
                 </CardHeader>
             </Card>
         </Link>

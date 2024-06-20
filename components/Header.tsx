@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { FaArrowRight } from "react-icons/fa"
+import { FaArrowRight } from "react-icons/fa";
+
 const Header = () => {
     return (
-        <header className="sticky top-0 z-30 ">
+        <header className="sticky top-0 z-30 bg-[#3D3B40]">
             <div className="container mx-auto  flex  flex-row justify-between  h-full items-center">
                 {/* Logo */}
                 <Link href="https://pokeapi.co/" target="_BLANK">
@@ -12,11 +13,11 @@ const Header = () => {
                 </Link>
 
                 {/* Text */}
-                <div className="flex items-center justify-between">
+                <div className="flex flex-row items-center justify-between">
                     <h1 className="mx-5 text-[25px] xl:h1">Fakbo dev</h1>
                 </div>
-                <Button variant="outline" className="py-6 px-4 xl:px-8">
-                    <Link href="https://github.com/fakbo-dev" target="_BLANK" className="flex justify-evenly ">
+                <Button variant="outline" className="py-6 px-4 xl:px-8 flex">
+                    <Link href="https://github.com/fakbo-dev" target="_BLANK" className="flex justify-evenly">
                         Visita mi Github</Link>
                 </Button>
             </div>
